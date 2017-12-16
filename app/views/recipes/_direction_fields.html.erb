@@ -1,0 +1,7 @@
+      <% position = 99 unless (position) %>
+
+      <td>
+        <%= f.text_area :step, :placeholder => direction_placeholder_text, :cols => 40, :rows => 4 %>
+        <%= f.text_field :position, :value => position, :hidden => true %>
+      </td>
+

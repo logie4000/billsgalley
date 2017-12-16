@@ -1,0 +1,40 @@
+// Place all the styles related to the recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recipe-text {
+  font-family: "Terminal","Courier New";
+  font-size: 1em;
+  font-weight: 600; 
+}
+
+.about-text {
+  text-align: center;
+  font-family: "Terminal","Courier New";
+  font-size: 1em;
+  font-weight: 800;
+}
+
+div.about-text {
+  margin: 0 auto;
+  width: 75%;
+  max-width: 500px;
+}
+
+#recipe-title {
+  font-family: "courier new";
+  font-size: 2em;
+  font-weight: 900;
+}
+
+div.recipe-links {
+  font-family: "courier new";
+  font-size: 1em;
+  font-weight: 600;
+  font-stretch: expanded;
+  height: 20px;
+  width: 100;
+  padding: 10px;
+  background-color: #e0e0f0;
+}
+

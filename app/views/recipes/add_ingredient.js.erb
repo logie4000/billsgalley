@@ -1,0 +1,14 @@
+
+var newRow = document.createElement('tr');
+newRow.innerHTML="<%= j( render :partial => 'new_ingredient', :locals => { :recipe => @recipe } ) %>";
+
+
+var direction_count = document.getElementsByClassName('ingredient').length;
+var directionsTable = document.getElementById("ingredient_table");
+var tableBody = directionsTable.getElementsByTagName("tbody")[0];
+
+console.log("Creating new Ingredient (" + direction_count + ") for recipe...");
+newRow.className = 'ingredient'
+newRow.id = "ingredient_" + direction_count;
+tableBody.appendChild(newRow);
+

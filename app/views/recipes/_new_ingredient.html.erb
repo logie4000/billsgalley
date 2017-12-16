@@ -1,0 +1,9 @@
+<tr class="ingredient" id="ingredient_new">
+<% new_ingredient = Ingredient.new %>
+
+<%= form_for recipe do |f| %>
+  <%= f.fields_for :ingredients, new_ingredient, :child_index => ->{ (Time.now.to_f * 1000000).to_i } do |ff| %>
+    <%= render :partial => "ingredient_fields", :locals => {:f => ff} %>
+  <% end %>
+<% end %>
+</tr>

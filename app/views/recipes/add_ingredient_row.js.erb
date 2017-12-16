@@ -1,0 +1,13 @@
+
+var newRow = document.createElement('tr');
+newRow.innerHTML="<%= j( render :partial => 'ingredient_row', :locals => {:ingredient => Ingredient.new()}) %>";
+
+var task_count = document.getElementsByClassName('ingredient').length;
+var tasksTable = document.getElementById("ingredient_table");
+var tableBody = tasksTable.getElementsByTagName("tbody")[0];
+
+console.log("Creating new Ingredient row (" + task_count + ") for submission...");
+newRow.className = 'ingredient'
+newRow.id = task_count;
+tableBody.appendChild(newRow);
+

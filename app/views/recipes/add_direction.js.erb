@@ -1,0 +1,14 @@
+<% @position = "99" unless @position %>
+var newRow = document.createElement('tr');
+newRow.innerHTML="<%= j( render :partial => 'new_direction', :locals => { :recipe => @recipe, :position => @position } ) %>";
+
+
+var direction_count = document.getElementsByClassName('direction').length;
+var directionsTable = document.getElementById("direction_table");
+var tableBody = directionsTable.getElementsByTagName("tbody")[0];
+
+console.log("Creating new Direction (" + direction_count + ") for recipe...");
+newRow.className = 'direction'
+newRow.id = "direction_" + direction_count;
+tableBody.appendChild(newRow);
+

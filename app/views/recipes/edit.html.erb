@@ -1,0 +1,9 @@
+<% title = @recipe ? @recipe.title : "Editing Recipe" %>
+<h1><%= title %></h1>
+
+<%= render 'form', recipe: @recipe %>
+
+<div class="recipe-links">
+<%= link_to 'Show Recipe', @recipe %> |
+<%= link_to 'Back to Recipes', recipes_path %>
+</div>

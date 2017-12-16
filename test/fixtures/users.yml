@@ -1,0 +1,10 @@
+<% SALT = "NaCl" unless defined?(SALT) %>
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+login_user:
+  id: 1
+  username: 'milo_aukerman@sst.com'
+  password_hash: <%= User.encrypted_password('passw0rd', SALT) %>
+  password_salt: <%= SALT %>
+

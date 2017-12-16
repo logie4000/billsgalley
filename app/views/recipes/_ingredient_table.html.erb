@@ -1,0 +1,23 @@
+<table id="ingredient_table" class="ingredient_table">
+  <thead><tr><th id="column_0">Ingredients</th><th id="column_1"></th></tr></thead>
+  <%= form_for recipe do |recipe_form| %>
+    <% row_num = 0 %>
+    <%= recipe_form.fields_for :ingredients, :child_index =>  ->{ (Time.now.to_f * 1000000).to_i  } do |ff| %>
+      <tr id="<%= h("ingredient_#{ff.object.id}") %>" class="ingredient">
+        <%= render :partial => "ingredient_fields", :locals => {:f => ff, :position => row_num} %>
+        <td>
+          <% if (ff.object.persisted?) %>
+            <%= link_to "Delete", remove_ingredient_recipe_path(recipe, :ingredient_id => ff.object.id), :remote => :true, :method => :patch %>
+          <% end %>
+        </td>
+      </tr>
+      <% row_num += 1 %>
+    <% end %>
+  <% end %>
+
+    <tfoot><div class="links">
+      <tr>
+        <td><span class='add-ingredient-link'><%= add_ingredient_link("Add Ingredient", @recipe) %></span></td>
+      </tr>
+    </div></tfoot>
+</table>

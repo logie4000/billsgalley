@@ -1,0 +1,13 @@
+<%= render :partial => 'shared/errors', :locals => { obj: @user } %>
+
+<% current_user = User.find(session[:user_id]) if session[:user_id] -%>
+<p><strong>Login Name</strong><br/>
+<%= f.text_field :username %></p>
+
+<p><strong>First Name</strong><br>
+<%= f.text_field :first_name %></p>
+
+<p><strong>Last Name</strong><br>
+<%= f.text_field :last_name %></p>
+
+

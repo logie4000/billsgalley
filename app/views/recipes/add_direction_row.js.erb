@@ -1,0 +1,13 @@
+
+var newRow = document.createElement('tr');
+newRow.innerHTML="<%= j( render :partial => 'direction_row', :locals => {:direction => Direction.new()}) %>";
+
+var task_count = document.getElementsByClassName('direction').length;
+var tasksTable = document.getElementById("direction_table");
+var tableBody = tasksTable.getElementsByTagName("tbody")[0];
+
+console.log("Creating new Direction row (" + task_count + ") for submission...");
+newRow.className = 'direction'
+newRow.id = task_count;
+tableBody.appendChild(newRow);
+

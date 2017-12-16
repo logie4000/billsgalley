@@ -1,0 +1,4 @@
+     <tr id="<%= h("direction_new") %>" class="direction">
+       <td>&nbsp;</td>
+       <td><%= text_area_tag "recipe[directions_attributes][#{(Time.now.to_f * 100000).to_i}][step]", nil, :cols => 40, :rows => 4 %></td>
+     </tr>

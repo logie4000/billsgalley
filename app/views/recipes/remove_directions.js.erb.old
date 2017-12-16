@@ -1,0 +1,15 @@
+var rowIds = getSelectedTableRows("directions", 1);
+console.log('Removing selected rows from directions: ' + rowIds.join(","));
+var table = document.getElementById("directions");
+
+for (var j = 0; j < table.getElementsByTagName("tBody").length; ++j) {
+  var tBody = table.getElementsByTagName("tBody")[j];
+
+  // Remove rows in reverse order, otherwise each removal modifies the position of the other rows
+  for (i = rowIds.length - 1; i >= 0; --i) {
+    var id = rowIds[i];
+    var row = tBody.rows[id];
+    row.parentNode.removeChild(row);
+  }
+}
+

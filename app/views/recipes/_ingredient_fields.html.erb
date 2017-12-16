@@ -1,0 +1,6 @@
+     <% position = 99 unless (position) %>
+
+      <td>
+        <%= f.text_field :value, :placeholder => ingredient_placeholder_text, :size => 60 %>
+        <%= f.text_field :position, :value => position, :hidden => true %>
+      </td>

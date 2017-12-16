@@ -1,0 +1,24 @@
+<table id="direction_table" class="direction_table">
+  <thead><tr><th id="column_0">Directions</th><th id="column_1"></th><th id="column_2"></th></tr></thead>
+  <%= form_for recipe do |recipe_form| %>
+    <% row_num = 0 %>
+    
+    <%= recipe_form.fields_for :directions, :child_index => ->{ (Time.now.to_f * 10000).to_i } do |ff| %>
+    <tr id="<%= h("direction_#{ff.index}") %>" class="direction">
+        <td><%= h("#{row_num + 1}") %></td>
+        <%= render :partial => "direction_fields", :locals => {:f => ff, :position => row_num} %>
+      </td>
+      <td>
+        <% if (ff.object.persisted?) %>
+          <%= link_to "Delete", remove_direction_recipe_path(recipe, :direction_id => ff.object.id), :remote => :true, :method => :patch %>
+        <% end %>
+      </td>
+      </tr>
+      <% row_num += 1 %>
+    <% end %>
+  <% end %>
+
+  <tfoot><tr>
+    <td><span class='add-direction-link'><%= add_direction_link("Add Direction", recipe) %></span></td>
+  </tr></tfoot>
+</table>

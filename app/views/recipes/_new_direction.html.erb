@@ -1,0 +1,11 @@
+<tr class="direction" id="direction_new">
+<% new_direction = Direction.new %>
+
+<%= form_for recipe do |f| %>
+  <%= f.fields_for :directions, new_direction, :child_index => ->{ (Time.now.to_f * 1000000).to_i } do |ff| %>
+    <td><%= h("") %></td>
+    <%= render :partial => "direction_fields", :locals => {:f => ff, :position => position} %>
+  <% end %>
+<% end %>
+</tr>
+

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<div class="recipe">
+<p>
+  <span id="recipe-title"><%= @recipe.title %></span>
+</p>
+
+<p class="recipe-text">
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p class="recipe-text">
+<% if (@recipe.ingredients) %>
+<strong>Ingredients</strong><br>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.value %><br>
+  <% end %>
+<% end %>
+</p>
+
+<p class="recipe-text">
+<% if (@recipe.directions) %>
+<strong>Directions</strong><br>
+<ol class="recipe-text">
+  <% @recipe.directions.each do |direction| %>
+    <li><%= h("#{direction.step}") %></li>
+  <% end %>
+</ol>
+<% end %>
+</p>
+<p class="recipe-text">
+<% if (@recipe.note) %>
+  <strong>Recipe Notes</strong><br>
+  <%= h("#{@recipe.note}") %>
+<% end %>
+</p>
+
+<p class="recipe-text">
+  <strong>Author:</strong>
+  <%= author_fullname(@recipe.author) %>
+</p>
+</div>
+<div class="recipe-links">
+<%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back to Recipes', recipes_path %>
+</div>
+

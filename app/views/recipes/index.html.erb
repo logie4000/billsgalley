@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><span class="recipe-text">Title</th>
+      <th><span class="recipe-text">Description</th>
+      <th><span class="recipe-text">Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><span class="recipe-text"><%= link_to recipe.title, recipe_path(recipe) %></span></td>
+        <td><span class="recipe-text"><%= recipe.description %></span></td>
+        <td><span class="recipe-text"><%= author_fullname(recipe.author) %></span></td>
+        <td><span class="recipe-text"><%= link_to 'Edit', edit_recipe_path(recipe) %></span></td>
+        <td><span class="recipe-text"><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="recipe-links">
+<%= link_to 'New Recipe', new_recipe_path %>
+</div>
