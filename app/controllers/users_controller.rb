@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :authorize, except: [:register, :login, :create, :welcome, :authenticate]
   before_action :authorize_as_admin, only: [:destroy]
 
@@ -144,7 +144,10 @@ class UsersController < ApplicationController
   
   private
   def set_user
-    @user = User.find(params[:id])
+    if (params[:id])
+      @user = User.find(params[:id])
+    end
+    
     if (session[:user_id])
       @current_user = User.find(session[:user_id])
     end
