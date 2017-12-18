@@ -77,6 +77,14 @@ class User < ApplicationRecord
     return pw_hash
   end
 
+  def is_admin?
+    if (self.isAdmin && self.isAdmin > 0)
+      return true
+    else
+      return false
+    end
+  end
+  
 private
   # Create a new salt
   def create_new_salt
