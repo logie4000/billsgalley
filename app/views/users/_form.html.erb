@@ -10,4 +10,9 @@
 <p><strong>Last Name</strong><br>
 <%= f.text_field :last_name %></p>
 
-
+<% if (@current_user.isAdmin && @current_user.isAdmin > 0) %>
+  <p><strong>Password</strong></br>
+  <%= f.password_field :password %><br>
+  <%= f.password_field :password_confirmation %>
+  </p>
+<% end %>
