@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, :presence => true, :uniqueness => true
   validates :username, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "must be a valid email format!" }
 
-  validates :password, :presence => true
+  validates :password_presence, :presence => true
   validates :password, :confirmation => true
   #validates :password_confirmation, :presence => true, unless: :password.nil?
 
@@ -43,9 +43,11 @@ class User < ApplicationRecord
   end
 
   def password=(pswd)
-    @password = pswd
-    create_new_salt
-    self.password_hash = User.encrypted_password(self.password, self.password_salt)
+    unless (pswd.nil? || pswd == "")
+      @password = pswd
+      create_new_salt
+      self.password_hash = User.encrypted_password(self.password, self.password_salt)
+    end
   end
 
   def password_confirmation
@@ -53,7 +55,17 @@ class User < ApplicationRecord
   end
 
   def password_confirmation=(pswd_conf)
-    @password_confirmation = pswd_conf
+    unless (pswd_conf.nil? || pswd_conf == "")
+      @password_confirmation = pswd_conf
+    end
+  end
+
+  def password_presence
+    if (self.password || self.password_hash)
+      return true
+    else
+      return false
+    end
   end
 
   # Returns an encrypted password from the given clear text password and the salt
