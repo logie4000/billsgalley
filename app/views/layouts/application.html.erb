@@ -13,7 +13,11 @@
 <span id="header-icon"><%= image_tag "ship_32.png" %></span>
 <span id="header-title">Bill's Galley</span>
 
-<span id="header-links">| 
+<span id="header-links">
+<% if session[:user_id] %>
+  <% user = User.find(session[:user_id]) %>
+  <%= "Welcome #{user.first_name} #{user.last_name}" 
+<% end %> | 
 <%= link_to 'About', about_recipes_path %> | 
 <%= link_to 'Recipes', recipes_path %> | 
 <% if session[:user_id] %>
