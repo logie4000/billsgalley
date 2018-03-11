@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103144218) do
+ActiveRecord::Schema.define(version: 20180311151517) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20171103144218) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.text "note"
+    t.string "image"
     t.index ["author_id"], name: "index_recipes_on_author_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20171103144218) do
     t.string "password_salt"
     t.string "first_name"
     t.string "last_name"
+    t.integer "isAdmin"
   end
 
   add_foreign_key "categories_recipes", "categories"

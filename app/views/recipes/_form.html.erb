@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<% Rails.logger.debug "Rendering recipe: #{@recipe.inspect}" %>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :recipe_title, :size => 50 %>
@@ -32,6 +34,11 @@
   <div class="field">
     <strong>Recipe Notes</strong><br>
     <%= form.text_area :note, id: :recipe_note, :cols => 50, :rows => 5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

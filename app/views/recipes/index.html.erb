@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>&nbsp;</th>
       <th><span class="recipe-text">Title</th>
       <th><span class="recipe-text">Description</th>
       <th><span class="recipe-text">Author</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
+        <td><%= link_to(image_tag(recipe.image.thumb.url), recipe) %></td>
         <td><span class="recipe-text"><%= link_to recipe.title, recipe_path(recipe) %></span></td>
         <td><span class="recipe-text"><%= recipe.description %></span></td>
         <td><span class="recipe-text"><%= author_fullname(recipe.author) %></span></td>

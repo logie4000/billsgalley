@@ -25,6 +25,27 @@ div.about-text {
   font-family: "courier new";
   font-size: 2em;
   font-weight: 900;
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+
+#recipe-details {
+  width: 50%;
+  float: left;
+}
+
+#recipe-image {
+  float: right;
+  width: 50%;
+}
+
+#recipe-footer {
+  width: 50%;
+  float: left;
+}
+img.recipe-image {
+  width: 400;
 }
 
 div.recipe-links {
