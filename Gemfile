@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.9'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -46,6 +46,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Gem vulnerbilities 
+gem "nokogiri", ">= 1.8.5"
+gem "activejob", ">= 5.1.6.1"
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
+gem "rails-html-sanitizer", ">= 1.0.4"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
