@@ -5,13 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Specify the Ruby version
+ruby '3.0.6'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'mysql2', '~> 0.4.9'
+gem 'mysql2'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -65,7 +66,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
