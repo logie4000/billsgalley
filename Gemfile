@@ -15,14 +15,14 @@ gem 'sqlite3'
 gem 'mysql2'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma'
 
 # Rest client used for REST api support, e.g. Github auth
 gem 'rest-client'
 
 # Uploader support
-gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
